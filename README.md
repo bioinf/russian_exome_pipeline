@@ -21,7 +21,7 @@ This command will load the `rex` image to your local Docker repository. To run t
 ```
 docker run -v /path/to/your/files:/input \
            -v /path/to/preferred/output/dir:/output 
-           --cpu <number of threads> -it rex:latest \
+           --cpus <number of threads> -it rex:latest \
            snakemake -s /gatk/pipelines/Snakefile -j <number of threads>
 ```
 
