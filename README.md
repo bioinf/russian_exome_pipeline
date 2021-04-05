@@ -12,13 +12,13 @@ The pipeline is created for the uniform re-alignment and re-analysis of WES/CES 
 
 The pre-built image and resource files which are needed to run the build are available at Yandex.Disk: https://disk.yandex.ru/d/MLKp3X77F7ycwQ?w=1. 
 
-If you use the pre-built image, the pre-built image, run:
+If you use the pre-built image, run the following command to load it into the local Docker repository:
 
 ```
 docker load -i rex_v1.img.tar.gz
 ```
 
-This command will load the `rex` image to your local Docker repository. To run the pipeline in Docker, all FASTQ files must be gzip-compressed and stored in one directory (no symlinks allowed). You can use the following command to start the container and run the pipeline:
+To run the pipeline in Docker, all FASTQ files must be gzip-compressed and stored in one directory (no symlinks allowed). You can use the following command to start the container and run the pipeline:
 
 ```
 docker run -v /path/to/your/files:/input \
