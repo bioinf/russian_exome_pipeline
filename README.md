@@ -4,7 +4,7 @@ The pipeline is created for the uniform re-alignment and re-analysis of WES/CES 
 
 `Dockerfile` is the recipe for creating a Docker image with pipeline and resource files used by GATK/BROAD
 
-`Snakefile` is the main pipeline script written in Snakemake (Snakameke v.6 or higher is required). The rulegraph of the pipeline is included below:
+`Snakefile` is the main pipeline script written in Snakemake (Snakameke v.6 or higher is required). An example DAG of jobs of the pipeline (for three samples) is included below:
 
 ![Example DAG of jobs](./dag.png)
 
@@ -27,3 +27,8 @@ docker run -v /path/to/your/files:/input \
 
 Please note that the number of CPUs has to be specified twice - once as the maximum number of threads that can be used by the Docker daemon, and once to pass the number of threads to the Snakemake (this number will be used for scaling).
 
+To build the image from scratch, please run the following command in the directory with all files downloaded from Yandex.Disk:
+
+```
+docker build --tag rex ./
+```
