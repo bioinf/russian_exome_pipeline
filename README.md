@@ -18,7 +18,7 @@ If you use the pre-built image, run the following command to load it into the lo
 docker load -i rex_v1.img.tar.gz
 ```
 
-To run the pipeline in Docker, all FASTQ files must be gzip-compressed and stored in one directory (no symlinks allowed). You can use the following command to start the container and run the pipeline:
+To run the pipeline in Docker, all FASTQ files must be gzip-compressed and stored in one directory (no symlinks allowed). The files must follow the naming convention: `<sample_name>.<R1/R2>.fastq.gz`.  You can use the following command to start the container and run the pipeline:
 
 ```
 docker run -v /path/to/your/files:/input \
