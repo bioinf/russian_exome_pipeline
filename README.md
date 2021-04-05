@@ -10,7 +10,9 @@ The pipeline is created for the uniform re-alignment and re-analysis of WES/CES 
 
 ## Building and installation
 
-The pre-built image and resource files which are needed to run the build are available at Yandex.Disk: . If you use the pre-built image, the pre-built image, run:
+The pre-built image and resource files which are needed to run the build are available at Yandex.Disk: https://disk.yandex.ru/d/MLKp3X77F7ycwQ?w=1. 
+
+If you use the pre-built image, the pre-built image, run:
 
 ```
 docker load -i rex_v1.img.tar.gz
