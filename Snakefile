@@ -1,4 +1,5 @@
 import os
+import re
 
 # conda activate snakemake
 # snakemake -n -r # -- test
@@ -14,7 +15,20 @@ for file in os.listdir('/input'):
         shortened_2 = os.path.splitext(shortened)[0]
         print(shortened_2)
         if os.path.splitext(shortened_2)[0] not in SAMPLES:
-            SAMPLES.append(os.path.splitext(shortened_2)[0])
+            if '_001' in file:
+                sample_name = re.findall('(.*)_R[12]_001\.', shortened)[0]
+                if '_R1_' in file:
+                    first_read = file
+                    second_read = file.replace('_R1_', '_R2_')
+                else:
+                    first_read = file.replace('_R2_', '_R1_')
+                    second_read = file
+                if sample_name not in SAMPLES:
+                    SAMPLES.append(sample_name)
+                    os.system(f'ln -sf /input/{first_read} /input/{sample_name}.R1.fastq.gz')
+                    os.system(f'ln -sf /input/{second_read} /input/{sample_name}.R2.fastq.gz')
+            else:
+                SAMPLES.append(os.path.splitext(shortened_2)[0])
 
 print(SAMPLES)
 
