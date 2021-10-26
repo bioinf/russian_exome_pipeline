@@ -47,7 +47,7 @@ rule bwa_mem2:
         "/output/{sample}.bam"
     threads: 8
     shell:
-        "bwa-mem2 mem -t {threads} -R '@RG\\tID:{wildcards.sample}\\tSM:{wildcards.sample}\\tLIB:1\\tPL:ILLUMINA' {input.index} {input.reads_f} {input.reads_r} | samtools view -bS - > {output}"
+        "bwa-mem2 mem -t {threads} -R '@RG\\tID:{wildcards.sample}\\tSM:{wildcards.sample}\\tLB:1\\tPL:ILLUMINA' {input.index} {input.reads_f} {input.reads_r} | samtools view -bS - > {output}"
 
 
 rule sort_bam:
