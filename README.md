@@ -22,7 +22,7 @@ To run the pipeline in Docker, all FASTQ files must be gzip-compressed and store
 
 ```
 docker run -v /path/to/your/files:/input \
-           -v /path/to/preferred/output/dir:/output 
+           -v /path/to/preferred/output/dir:/output \
            --cpus="<number of threads, e.g. 64.0>" -it rex:latest \
            snakemake -s /gatk/pipelines/Snakefile -j <number of threads>
 ```
